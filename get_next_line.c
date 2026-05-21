@@ -6,7 +6,7 @@
 /*   By: awsall <awsall@student.42urduliz.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 13:19:49 by awsall            #+#    #+#             */
-/*   Updated: 2026/05/15 13:12:10 by awsall           ###   ########.fr       */
+/*   Updated: 2026/05/21 15:05:50 by awsall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,29 @@ char	*ft_therest(char *save)
 		new_save[j++] = save[i++];
 	free(save);
 	return (new_save);
+}
+char	*ft_form_line(char *save)
+{
+	int	i;
+	char	*line;
+
+	i = 0;
+	if (save[i] == '\0')
+		return (NULL);
+	while (save[i] != '\0' && save[i] != '\n')
+		i++;
+	line = ft_calloc((i + 2), (sizeof(char));
+	i = 0;
+	while (save[i] != '\0' && save[i] != '\n')
+	{	
+		line[i] = save[i];
+		i++;
+	}
+	if (save[i] == '\n')
+		line[i] = '\n';
+	return (line);
+}
+
+
+
 }

@@ -20,8 +20,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-
-
+char                    *ft_strjoin_free(char * save, char *temp)
+char                    *ft_therest(char *save)
 
 
 
