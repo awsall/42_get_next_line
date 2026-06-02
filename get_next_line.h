@@ -20,13 +20,13 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-char                    *ft_strjoin_free(char * save, char *temp)
-char                    *ft_therest(char *save)
-
-
-
+char                    *ft_strjoin_free(char *save, char *temp)
+char                    *the_rest(char *save)
+char			*form_line(char *save)
+char			*read_until_newline(int fd, char *save)
+char			*get_next_line(int fd)
 /* ---		utils		---*/
-unsigned long int	ft_strlen(char *str);
+unsigned long int	ft_strlen(char *str)
 char			*ft_strchr(char *save, int caracter)
 void			*ft_bzero(void *str, unsigned long int n)
 char			*ft_strjoin(char *s1, char *s2)

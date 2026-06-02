@@ -22,7 +22,7 @@ char	*ft_strjoin_free(char * save, char *temp)
 	free (save);
 	return (nuevo);
 }
-char	*ft_therest(char *save)
+char	*the_rest(char *save)
 {
 	int		i;
 	int		j;
@@ -49,7 +49,7 @@ char	*ft_therest(char *save)
 	free(save);
 	return (new_save);
 }
-char	*ft_form_line(char *save)
+char	*form_line(char *save)
 {
 	int	i;
 	char	*line;
@@ -111,7 +111,7 @@ char	*get_next_line(int fd)
 	save = read_until_newline(fd, save);
 	if (save == NULL)
 		return (NULL);
-	line = ft_form_line(save);
-	save = ft_therest(save);
+	line = form_line(save);
+	save = the_rest(save);
 	return (line);
 }
