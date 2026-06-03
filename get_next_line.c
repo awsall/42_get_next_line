@@ -6,27 +6,31 @@
 /*   By: awsall <awsall@student.42urduliz.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 13:19:49 by awsall            #+#    #+#             */
-/*   Updated: 2026/06/02 13:53:50 by awsall           ###   ########.fr       */
+/*   Updated: 2026/06/03 13:58:05 by awsall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line"
+#include "get_next_line.h"
 
-char	*ft_strjoin_free(char * save, char *temp)
+char	*ft_strjoin_free(char *save, char *temp)
 {
-	char	*nuevo;
+	char	*new;
 
-	nuevo = ft_strjoin(save, temp);
-	if (!nuevo)
+	new = ft_strjoin(save, temp);
+	if (!new)
+	{
+		free (save);
 		return (NULL);
-	free (save);
-	return (nuevo);
+	}
+	free(save);
+	return (new);
 }
+
 char	*the_rest(char *save)
 {
 	int		i;
 	int		j;
-	char 	*new_save;
+	char	*new_save;
 
 	i = 0;
 	while (save[i] != '\0' && save[i] != '\n')
@@ -49,9 +53,10 @@ char	*the_rest(char *save)
 	free(save);
 	return (new_save);
 }
+
 char	*form_line(char *save)
 {
-	int	i;
+	int		i;
 	char	*line;
 
 	i = 0;
@@ -64,7 +69,7 @@ char	*form_line(char *save)
 		return (NULL);
 	i = 0;
 	while (save[i] != '\0' && save[i] != '\n')
-	{	
+	{
 		line[i] = save[i];
 		i++;
 	}
@@ -75,9 +80,10 @@ char	*form_line(char *save)
 	}
 	return (line);
 }
+
 char	*read_until_newline(int fd, char *save)
 {
-	int	n_of_caracter;
+	int		n_of_caracter;
 	char	*temp;
 
 	if (!save)
@@ -86,26 +92,27 @@ char	*read_until_newline(int fd, char *save)
 	n_of_caracter = 1;
 	while (n_of_caracter > 0)
 	{
-		n_of_caracter = read(fd, temp, BUFFER_SIZE); 
+		n_of_caracter = read(fd, temp, BUFFER_SIZE);
 		if (n_of_caracter == -1)
 		{
 			free(temp);
 			free(save);
-			return(NULL);
+			return (NULL);
 		}
 		temp[n_of_caracter] = '\0';
-		save = ft_free_strjoin(save, temp);
+		save = ft_strjoin_free(save, temp);
 		if (ft_strchr(save, '\n'))
-			break;
+			break ;
 	}
 	free (temp);
 	return (save);
 }
+
 char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*save;
-	
+
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
 	save = read_until_newline(fd, save);
@@ -115,3 +122,23 @@ char	*get_next_line(int fd)
 	save = the_rest(save);
 	return (line);
 }
+/*
+#include <stdio.h>
+#include <fcntl.h>
+
+int	main(void)
+{
+	int	fd;
+	char *line;
+
+	fd = open("text.txt", O_RDONLY);
+	if (fd < 0)
+		return (1);
+	
+	while ((line = get_next_line(fd)))
+	{
+		printf("%s", line);
+		free (line);
+	}
+	return (0);
+}*/
