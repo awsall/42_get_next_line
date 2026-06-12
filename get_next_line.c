@@ -122,7 +122,7 @@ char	*get_next_line(int fd)
 	save = the_rest(save);
 	return (line);
 }
-/*
+
 #include <stdio.h>
 #include <fcntl.h>
 
@@ -141,4 +141,4 @@ int	main(void)
 		free (line);
 	}
 	return (0);
-}*/
+}

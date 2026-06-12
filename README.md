@@ -17,26 +17,44 @@ El proyecto **GET_NEXT_LINE** consiste en crear una función en C que lea unalí
 ES una variable cuyo valor persiste durante toda la ejecución de un programa. A diferencia de las variables locales que se destruyen al finalizar una función,ella conserva su valor entre llamadas.
 
 **Read**
-Es una llamada al sistema de bajo nivel utilizada para leer datos desde un archivo, dispositivo o socket previamente abierto. Lee un número específico de bytes hacia un búfer de memoria asignado. 
+Es una llamada al sistema de bajoo nivel utilizada para leer datos desde un archivo, un socket o la entrada estándar. Lee un número específico de bytes desde un descriptor de archivo y los almacena en un búfer de memoria. 
 
 # Descripción de las funciones útiles
 
 Estas funciones nos sirve como heramientas para crear nuestra función **Get_Next_Line.c**.
 
 **ft_bzero**
-
-
+Rellena con bytes de valor zero(0) una porción de memoria. sirve para crear nuestra propia función calloc que es prohibido en este proyecto.
 
 **ft_calloc**
+Asigna una memoria de forma dinámica en el heap y la inicializa automáticamente a cero.
 
 **ft_strchr**
+Detecta la primera aparición de un carácter específico dentro de una cadena de texto.
 
 **ft_strjoin**
-
+Concatena dos cadenas en una sola cadena.
 
 **ft_strlen**
+Sirve para saber la longitud de una cadena.
 
-#Instrucciones
+# Instrucciones
 
+
+
+
+
+# Recursos
+
+**Explicaciones de los compañeros**
+
+**Google** y **Youtube**
+
+# Uso de IA
+**Verificación de código**
+Se usa IA para explicar el funcionamiento de cada función.
+
+**Explicación detallada de cada función**
+Solicito que verifique mi código y proporcione una explicación de línea para comprender mejor su funcionamiento.
 
 
