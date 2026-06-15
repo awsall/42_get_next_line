@@ -39,10 +39,8 @@ Concatena dos cadenas en una sola cadena.
 Sirve para saber la longitud de una cadena.
 
 # Instrucciones
-
-
-
-
+Para compilar se puede utilizar como ejemplo un tomaño de BUFFER_SIZE de 42, 15, 1 ect cc -Wall -Werror -Wextra -D BUFFER_SIZE=42 <archivos>.c.
+Se puede también elegir el valor por defecto que se prefería en el get_next_line.h cc -Wall -Werror -Wextra <archivos>.c.
 
 # Recursos
 

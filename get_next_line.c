@@ -6,7 +6,7 @@
 /*   By: awsall <awsall@student.42urduliz.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 13:19:49 by awsall            #+#    #+#             */
-/*   Updated: 2026/06/03 13:58:05 by awsall           ###   ########.fr       */
+/*   Updated: 2026/06/15 14:44:28 by awsall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ char	*get_next_line(int fd)
 	save = the_rest(save);
 	return (line);
 }
-
+/*
 #include <stdio.h>
 #include <fcntl.h>
 
@@ -141,4 +141,4 @@ int	main(void)
 		free (line);
 	}
 	return (0);
-}
+}*/
