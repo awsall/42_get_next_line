@@ -6,7 +6,7 @@
 /*   By: awsall <awsall@student.42urduliz.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 13:19:49 by awsall            #+#    #+#             */
-/*   Updated: 2026/06/15 14:44:28 by awsall           ###   ########.fr       */
+/*   Updated: 2026/06/22 18:52:31 by awsall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,12 @@ char	*form_line(char *save)
 char	*read_until_newline(int fd, char *save)
 {
 	int		n_of_caracter;
-	char	*temp;
+	char	*temp;	
 
 	if (!save)
 		save = ft_calloc(1, 1);
+	if (BUFFER_SIZE <= 0)
+		return (NULL);
 	temp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	n_of_caracter = 1;
 	while (n_of_caracter > 0)
@@ -113,7 +115,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*save;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	save = read_until_newline(fd, save);
 	if (save == NULL)
@@ -122,10 +124,9 @@ char	*get_next_line(int fd)
 	save = the_rest(save);
 	return (line);
 }
-/*
+
 #include <stdio.h>
 #include <fcntl.h>
-
 int	main(void)
 {
 	int	fd;
@@ -134,11 +135,8 @@ int	main(void)
 	fd = open("text.txt", O_RDONLY);
 	if (fd < 0)
 		return (1);
-	
-	while ((line = get_next_line(fd)))
-	{
-		printf("%s", line);
-		free (line);
-	}
+	line = get_next_line(fd);
+	printf("%s", line);
+	free (line);
 	return (0);
-}*/
+}

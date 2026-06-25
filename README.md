@@ -10,7 +10,8 @@
 
 # Descripción
 
-El proyecto **GET_NEXT_LINE** consiste en crear una función en C que lea unalínea desde un descriptor de archivo (file descriptor) cada vez que se llama, permitiéndo leer un archivo de texto de manera secuencial sin importar su tamaño. 
+El proyecto **GET_NEXT_LINE** consiste en crear una función en C que lea unalínea desde un descriptor de archivo (file descriptor) cada vez que se llama, permitiéndo leer un archivo de texto de manera secuencial sin importar su tamaño.
+
 **Conceptos clave**
 
 **Variable static**
